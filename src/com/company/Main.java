@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
-        int m1,n1,p1,m2,n2,p2,m3,n3,p3;
+        int m1,n1,p1,m2,n2,p2,m3,n3,p3,ivanov,petrov,sidorov;
         System.out.println("Введите сколько пачаны набрали баллов");
         m1=in.nextInt();
         n1=in.nextInt();
@@ -14,19 +14,23 @@ public class Main {
         m3=in.nextInt();
         n3=in.nextInt();
         p3=in.nextInt();
-        if(m1+n1+p1>m2+n2+p2&&m1+n1+p1>m3+n3+p3)
-            System.out.println("Победил Иванов"+"\nЭтот задрот набрал :"+(m1+n1+p1));
-        else if(m2+n2+p2>m1+n1+p1&&m2+n2+p2>m3+n3+p3)
-            System.out.println("Победил Петров"+"\nЭтот задрот набрал :"+(m2+n2+p2));
-        else if (m3+n3+p3>m2+n2+p2&&m3+n3+p3>m1+n1+p1)
-            System.out.println("Победил Сидоров"+"\nЭтот задрот набрал :"+(m3+n3+p3));
-        else if (m1+n1+p1==m2+n2+p2&&(m1+n1+p1>m3+n3+p3||m2+n2+p2>m3+n3+p3))
+        ivanov=m1+n1+p1;
+        petrov=m2+n2+p2;
+        sidorov=m3+n3+p3;
+        if(ivanov>petrov&ivanov>sidorov)
+            System.out.println("Победил Иванов"+"\nЭтот задрот набрал :"+ivanov);
+        else if(petrov>ivanov&petrov>sidorov)
+            System.out.println("Победил Петров"+"\nЭтот задрот набрал :"+petrov);
+        else if (sidorov>petrov&sidorov>ivanov)
+            System.out.println("Победил Сидоров"+"\nЭтот задрот набрал :"+sidorov);
+        else if (ivanov==petrov&ivanov>sidorov)
             System.out.println("Победил Иванов и Петров");
-        else if (m1+n1+p1==m3+n3+p3&&(m1+n1+p1>m2+n2+p2||m3+n3+p3>m2+n2+p2))
+        else if (ivanov==sidorov&ivanov>petrov)
             System.out.println("Победил Иванов и Сидоров");
-        else if (m3+n3+p3==m2+n2+p2&&(m3+n3+p3>m1+n1+p1||m2+n2+p2>m1+n1+p1))
+        else if (petrov>ivanov)
             System.out.println("Победил Сидоров и Петров");
-
+        else
+            System.out.println("Победили все");
 
 
 
